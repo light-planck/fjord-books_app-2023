@@ -239,3 +239,6 @@ en:
         edit: "Editing book"
       actions:
         back: "Back to books"
+
+  app:
+    title: "BooksApp"
