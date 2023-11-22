@@ -216,17 +216,23 @@ en:
       short: "%d %b %H:%M"
     pm: pm
 
-  Title: "Title"
-  Memo: "Memo"
-  Author: "Author"
-  Picture: "Picture"
-  Show this book: "Show this book"
-  New book: "New book"
-  Edit this book: "Edit this book"
-  Back to books: "Back to books"
-  Destroy this book: "Destroy this book"
-  Editing book: "Editing book"
   books:
-    list: "books"
-    update:
-      success: "Book was successfully updated."
+    title: "Title"
+    memo: "Memo"
+    author: "Author"
+    picture: "Picture"
+    actions:
+      new: "New book"
+      show: "Show this book"
+      edit: "Edit this book"
+      destroy: "Destroy this book"
+      update:
+        success: "Book was successfully updated."
+
+  pages:
+    books:
+      title:
+        index: "books"
+        edit: "Editing book"
+      actions:
+        back: "Back to books"

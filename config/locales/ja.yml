@@ -182,17 +182,23 @@ ja:
       short: "%m/%d %H:%M"
     pm: 午後
 
-  Title: "タイトル"
-  Memo: "メモ"
-  Author: "著者"
-  Picture: "写真"
-  Show this book: "この本を表示"
-  New book: "本を追加"
-  Edit this book: "この本を編集"
-  Back to books: "書籍一覧に戻る"
-  Destroy this book: "この本を削除"
-  Editing book: "本を編集"
   books:
-    list: "書籍一覧"
-    update:
-      success: "本が正常に更新されました。"
+    title: "タイトル"
+    memo: "メモ"
+    author: "著者"
+    picture: "写真"
+    actions:
+      new: "本を追加"
+      show: "この本を表示"
+      edit: "この本を編集"
+      destroy: "この本を削除"
+      update:
+        success: "本が正常に更新されました。"
+
+  pages:
+    books:
+      title:
+        index: "書籍一覧"
+        edit: "本を編集"
+      actions:
+        back: "書籍一覧に戻る"
