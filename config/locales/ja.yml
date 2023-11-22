@@ -205,3 +205,6 @@ ja:
         edit: "本を編集"
       actions:
         back: "書籍一覧に戻る"
+
+  app:
+    title: "書籍管理アプリ"
