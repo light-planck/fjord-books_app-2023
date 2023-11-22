@@ -182,7 +182,6 @@ ja:
       short: "%m/%d %H:%M"
     pm: 午後
 
-  books: "書籍一覧"
   Title: "タイトル"
   Memo: "メモ"
   Author: "著者"
@@ -193,3 +192,7 @@ ja:
   Back to books: "書籍一覧に戻る"
   Destroy this book: "この本を削除"
   Editing book: "本を編集"
+  books:
+    list: "書籍一覧"
+    update:
+      success: "本が正常に更新されました。"

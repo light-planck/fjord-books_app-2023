@@ -216,7 +216,6 @@ en:
       short: "%d %b %H:%M"
     pm: pm
 
-  books: "books"
   Title: "Title"
   Memo: "Memo"
   Author: "Author"
@@ -227,3 +226,7 @@ en:
   Back to books: "Back to books"
   Destroy this book: "Destroy this book"
   Editing book: "Editing book"
+  books:
+    list: "books"
+    update:
+      success: "Book was successfully updated."
