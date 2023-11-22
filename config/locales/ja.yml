@@ -194,6 +194,8 @@ ja:
       destroy: "この本を削除"
       update:
         success: "本が正常に更新されました。"
+      destroy:
+        success: "本が正常に削除されました。"
 
   pages:
     books:

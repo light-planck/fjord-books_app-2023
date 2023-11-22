@@ -228,6 +228,8 @@ en:
       destroy: "Destroy this book"
       update:
         success: "Book was successfully updated."
+      destroy:
+        success: "Book was successfully destroyed."
 
   pages:
     books:
