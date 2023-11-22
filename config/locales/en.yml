@@ -226,15 +226,16 @@ en:
       show: "Show this book"
       edit: "Edit this book"
       destroy: "Destroy this book"
-      update:
-        success: "Book was successfully updated."
-      destroy:
-        success: "Book was successfully destroyed."
+      notice:
+        update: "Book was successfully updated."
+        destroy: "Book was successfully destroyed."
+        create: "Book was successfully created."
 
   pages:
     books:
       title:
         index: "books"
+        new: "New book"
         edit: "Editing book"
       actions:
         back: "Back to books"

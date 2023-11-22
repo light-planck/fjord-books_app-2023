@@ -192,15 +192,16 @@ ja:
       show: "この本を表示"
       edit: "この本を編集"
       destroy: "この本を削除"
-      update:
-        success: "本が正常に更新されました。"
-      destroy:
-        success: "本が正常に削除されました。"
+      notice:
+        update: "本が正常に更新されました。"
+        destroy: "本が正常に削除されました。"
+        create: "本が正常に作成されました。"
 
   pages:
     books:
       title:
         index: "書籍一覧"
+        new: "本を追加"
         edit: "本を編集"
       actions:
         back: "書籍一覧に戻る"
