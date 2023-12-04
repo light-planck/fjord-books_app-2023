@@ -217,10 +217,6 @@ en:
     pm: pm
 
   books:
-    title: "Title"
-    memo: "Memo"
-    author: "Author"
-    picture: "Picture"
     actions:
       new: "New book"
       show: "Show this book"
