@@ -198,9 +198,6 @@ ja:
       actions:
         back: "書籍一覧に戻る"
 
-  app:
-    title: "書籍管理アプリ"
-
   models:
     notice:
       create: "%{model}が正常に作成されました。"

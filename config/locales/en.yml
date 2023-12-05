@@ -232,9 +232,6 @@ en:
       actions:
         back: "Back to books"
 
-  app:
-    title: "BooksApp"
-
   models:
     notice:
       create: "%{model} was successfully created."
