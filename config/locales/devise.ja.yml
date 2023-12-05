@@ -1,5 +1,1 @@
 ja:
-  devise:
-    sessions:
-      user:
-        signed_in: "ログインしました。"
