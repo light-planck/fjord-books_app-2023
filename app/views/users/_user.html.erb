@@ -25,8 +25,8 @@
     <%= user.self_introduction %>
   </p>
 
-  <div>
-    <p><strong><%= User.human_attribute_name(:avatar) %>:</strong></p>
+  <p>
+    <strong><%= User.human_attribute_name(:avatar) %>:</strong>
     <%= image_tag user.avatar.variant(:thumb) if user.avatar.attached? %>
-  </div>
+  </p>
 </div>
