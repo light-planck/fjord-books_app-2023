@@ -42,8 +42,12 @@ class ReportsController < ApplicationController
   end
 
   def destroy
-    @report.destroy
+    unless @report.user_id == current_user.id
+      redirect_to reports_url, alert: t('errors.messages.unauthorized')
+      return
+    end
 
+    @report.destroy
     respond_to do |format|
       format.html { redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: Report.model_name.human) }
       format.json { head :no_content }
