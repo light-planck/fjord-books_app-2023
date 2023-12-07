@@ -30,6 +30,11 @@ class ReportsController < ApplicationController
   end
 
   def update
+    unless @report.user_id == current_user.id
+      redirect_to reports_url, alert: t('errors.messages.unauthorized')
+      return
+    end
+
     respond_to do |format|
       if @report.update(report_params)
         format.html { redirect_to report_url(@report), notice: t('controllers.common.notice_update', name: Report.model_name.human) }
