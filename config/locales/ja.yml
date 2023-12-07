@@ -217,3 +217,5 @@ ja:
     registrations:
       edit:
         title: "アカウント編集"
+  comment:
+    posted_by: 投稿者
