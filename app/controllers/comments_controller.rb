@@ -20,6 +20,24 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+    @report = @comment.commentable
+
+    if @comment.user == current_user
+      @comment.destroy
+      respond_to do |format|
+        format.html { redirect_to report_url(@report), notice: t('controllers.common.notice_destroy', name: Comment.model_name.human) }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to report_url(@report), alert: t('errors.messages.unauthorized') }
+        format.json { head :no_content }
+      end
+    end
+  end
+
   private
 
   def comment_params

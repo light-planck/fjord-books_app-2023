@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :books
   resources :users, only: %i(index show)
   resources :reports do
-    resources :comments, only: %i(new create)
+    resources :comments, only: %i(new create destroy)
   end
 end
