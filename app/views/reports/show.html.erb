@@ -14,7 +14,7 @@
         <%= comment.user.email %> <br />
       <% end %>
 
-      <% if comment.user.id == current_user.id %>
+      <% if comment.user == current_user %>
         <%= button_to t('views.common.destroy', name: Comment.model_name.human.downcase), [comment.commentable, comment], method: :delete %>
       <% end %>
 
@@ -24,13 +24,13 @@
 </div>
 
 <nav class="page-nav">
-  <% if @report.user_id == current_user.id %>
+  <% if @report.user == current_user %>
     <%= link_to t('views.common.edit', name: Report.model_name.human.downcase), edit_report_path(@report) %> |
   <% end %>
   <%= link_to t('views.common.back', name: i18n_pluralize(Report.model_name.human.downcase)), reports_path %> |
   <%= link_to t('views.common.new', name: Comment.model_name.human.downcase), new_polymorphic_path([@report, Comment.new]) %>
 
-  <% if @report.user_id == current_user.id %>
+  <% if @report.user == current_user %>
     <%= button_to t('views.common.destroy', name: Report.model_name.human.downcase), @report, method: :delete %>
   <% end %>
 </nav>

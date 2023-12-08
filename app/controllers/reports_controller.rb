@@ -30,7 +30,7 @@ class ReportsController < ApplicationController
   end
 
   def update
-    unless @report.user_id == current_user.id
+    unless @report.user == current_user
       redirect_to reports_url, alert: t('errors.messages.unauthorized')
       return
     end
@@ -47,7 +47,7 @@ class ReportsController < ApplicationController
   end
 
   def destroy
-    unless @report.user_id == current_user.id
+    unless @report.user == current_user
       redirect_to reports_url, alert: t('errors.messages.unauthorized')
       return
     end
