@@ -2,11 +2,30 @@
 
 <div class="show-item">
   <%= render @book %>
+  <p>
+    <strong><%= Comment.human_attribute_name(:content) %>:</strong> <br />
+    <% @book.comments.each do |comment| %>
+      <%= comment.content %> <br />
+
+      <%= t('comment.posted_by')%>:
+      <% if !comment.user.name.blank? %>
+        <%= comment.user.name %> <br />
+      <% else %>
+        <%= comment.user.email %> <br />
+      <% end %>
+
+      <% if comment.user.id == current_user.id %>
+        <%= button_to t('views.common.destroy', name: Comment.model_name.human.downcase), [comment.commentable, comment], method: :delete %>
+      <% end %>
+
+      <br />
+    <% end %>
+  </p>
 </div>
 
 <nav class="page-nav">
   <%= link_to t('views.common.edit', name: Book.model_name.human.downcase), edit_book_path(@book) %> |
-  <%= link_to t('views.common.back', name: i18n_pluralize(Book.model_name.human.downcase)), books_path %>
-
+  <%= link_to t('views.common.back', name: i18n_pluralize(Book.model_name.human.downcase)), books_path %> |
+  <%= link_to t('views.common.new', name: Comment.model_name.human.downcase), new_polymorphic_path([@book, Comment.new]) %>
   <%= button_to t('views.common.destroy', name: Book.model_name.human.downcase), @book, method: :delete %>
 </nav>
