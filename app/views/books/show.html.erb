@@ -7,7 +7,7 @@
     <% @book.comments.each do |comment| %>
       <%= comment.content %> <br />
 
-      <%= t('comment.posted_by')%>:
+      <%= t('comment.posted_by') %>:
       <% if !comment.user.name.blank? %>
         <%= comment.user.name %> <br />
       <% else %>
