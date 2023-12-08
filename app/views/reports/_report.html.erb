@@ -8,4 +8,9 @@
     <strong><%= Report.human_attribute_name(:content) %>:</strong>
     <%= report.content %>
   </p>
+
+  <p>
+    <strong><%= Report.human_attribute_name(:created_at) %>:</strong>
+    <%= report.created_at.in_time_zone('Tokyo').strftime('%Y年%m月%d日 %H:%M') %>
+  </p>
 </div>
