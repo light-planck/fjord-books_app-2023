@@ -8,24 +8,4 @@
     <strong><%= Report.human_attribute_name(:content) %>:</strong>
     <%= report.content %>
   </p>
-
-  <p>
-    <strong><%= Comment.human_attribute_name(:content) %>:</strong> <br />
-    <% report.comments.each do |comment| %>
-      <%= comment.content %> <br />
-
-      <%= t('comment.posted_by')%>:
-      <% if !comment.user.name.blank? %>
-        <%= comment.user.name %> <br />
-      <% else %>
-        <%= comment.user.email %> <br />
-      <% end %>
-
-      <% if comment.user.id == current_user.id %>
-        <%= button_to t('views.common.destroy', name: Comment.model_name.human.downcase), [comment.commentable, comment], method: :delete %>
-      <% end %>
-
-      <br />
-    <% end %>
-  </p>
 </div>
