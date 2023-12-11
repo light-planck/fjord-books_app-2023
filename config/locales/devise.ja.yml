@@ -1,1 +1,5 @@
 ja:
+  views:
+    sign_up: 新規登録
+    login: ログイン
+    minimum_password_length: "%{count}文字以上"
