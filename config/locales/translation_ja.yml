@@ -13,3 +13,6 @@ ja:
       user:
         email: メールアドレス
         password: パスワード
+        zip_code: 郵便番号
+        address: 住所
+        personal_statement: 自己紹介文
