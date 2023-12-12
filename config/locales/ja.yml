@@ -201,6 +201,7 @@ ja:
       next: '次 ›'
       truncate: '…'
     navigation:
+      books: 書籍一覧
       users: ユーザー一覧
       edit_profile: プロフィールを編集
       logout: ログアウト

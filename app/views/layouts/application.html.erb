@@ -14,6 +14,7 @@
     <p>
       <% if user_signed_in? %>
         <strong><%= current_user.email %></strong>でログイン中
+        <%= link_to t('views.navigation.books'), books_path %> |
         <%= link_to t('views.navigation.users'), users_path %> |
         <%= link_to t('views.navigation.edit_profile'), edit_user_registration_path %> |
         <%= link_to t('views.navigation.logout'), destroy_user_session_path, data: { "turbo-method": :delete } %>
