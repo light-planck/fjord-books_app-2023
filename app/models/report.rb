@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Report < ApplicationRecord
-  REPORT_URL_REGEX = %r{http://localhost:3000/reports/\d+}
+  REPORT_URL_REGEX = %r{http://localhost:3000/reports/(\d+)}
 
   belongs_to :user
   has_many :comments, as: :commentable, dependent: :destroy
