@@ -1,0 +1,10 @@
+<div>
+  <p>
+    <strong><%= t('views.mention.title', name: Report.model_name.human) %></strong><br />
+    <ul>
+      <% report.mentioned_reports.each do |mentioned_report| %>
+        <li><%= link_to mentioned_report.title, mentioned_report %></li>
+      <% end %>
+    </ul>
+  </p>
+</div>
