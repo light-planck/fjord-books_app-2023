@@ -15,7 +15,7 @@
           <%= comment.user.email %> <br />
         <% end %>
 
-        <%= Comment.human_attribute_name(:created_at) %>: <%= comment.created_at.in_time_zone('Tokyo').strftime('%Y年%m月%d日 %H:%M') %> <br />
+        <%= Comment.human_attribute_name(:created_at) %>: <%= l comment.created_at %> <br />
 
         <% if comment.user == current_user %>
           <%= button_to t('views.common.destroy', name: Comment.model_name.human.downcase), [comment.commentable, comment], method: :delete %>
