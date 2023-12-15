@@ -24,15 +24,9 @@ class CommentsController < ApplicationController
 
     if @comment.user == current_user
       @comment.destroy
-      respond_to do |format|
-        format.html { redirect_to url_for(@commentable), notice: t('controllers.common.notice_destroy', name: Comment.model_name.human) }
-        format.json { head :no_content }
-      end
+      redirect_to url_for(@commentable), notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
     else
-      respond_to do |format|
-        format.html { redirect_to url_for(@commentable), alert: t('errors.messages.unauthorized') }
-        format.json { head :no_content }
-      end
+      redirect_to url_for(@commentable), alert: t('errors.messages.unauthorized')
     end
   end
 
