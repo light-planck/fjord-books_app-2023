@@ -40,10 +40,12 @@ class ReportsTest < ApplicationSystemTestCase
     assert_text '日報が更新されました。'
   end
 
-  # test 'should destroy Report' do
-  #   visit report_url(@report)
-  #   click_on 'Destroy this report', match: :first
+  test 'should destroy Report' do
+    visit reports_url
+    click_on 'この日報を表示', match: :first
+    assert_text '日報の詳細'
 
-  #   assert_text 'Report was successfully destroyed'
-  # end
+    click_on 'この日報を削除'
+    assert_text '日報が削除されました。'
+  end
 end
