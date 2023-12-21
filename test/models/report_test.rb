@@ -37,6 +37,7 @@ class ReportTest < ActiveSupport::TestCase
     # 更新
     report2.update!(content: "http://localhost:3000/reports/#{report3.id}")
     report2.reload
+
     assert_equal [report3], report2.mentioning_reports
 
     report2.update!(content: '.')
