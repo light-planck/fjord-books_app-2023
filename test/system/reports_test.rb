@@ -25,18 +25,20 @@ class ReportsTest < ApplicationSystemTestCase
     assert_text '日報が作成されました。'
   end
 
-  # test 'should update Report' do
-  #   visit report_url(@report)
-  #   click_on 'Edit this report', match: :first
+  test 'should update Report' do
+    visit reports_url
+    click_on 'この日報を表示', match: :first
+    assert_text '日報の詳細'
 
-  #   fill_in 'Content', with: @report.content
-  #   fill_in 'Title', with: @report.title
-  #   fill_in 'User', with: @report.user_id
-  #   click_on 'Update Report'
+    click_on 'この日報を編集'
+    assert_text '日報の編集'
 
-  #   assert_text 'Report was successfully updated'
-  #   click_on 'Back'
-  # end
+    fill_in 'タイトル', with: 'フィヨルドブートキャンプの感想'
+    fill_in '内容', with: '学びが多い'
+    click_on '更新する'
+
+    assert_text '日報が更新されました。'
+  end
 
   # test 'should destroy Report' do
   #   visit report_url(@report)
