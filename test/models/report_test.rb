@@ -17,4 +17,37 @@ class ReportTest < ActiveSupport::TestCase
 
     assert_equal Date.new(2024, 1, 1), report1.created_on
   end
+
+  test '#save_mentions' do
+    report1 = reports(:report1)
+    report1.save!
+
+    report2 = reports(:report2)
+    report2.save!
+
+    # 言及
+    assert_equal [report1], report2.mentioning_reports
+
+    # 複数個の言及
+    report3 = reports(:report3)
+    report3.save!
+
+    assert_equal [report1, report2], report3.mentioning_reports
+
+    # 更新
+    report2.update!(content: "http://localhost:3000/reports/#{report3.id}")
+    report2.reload
+    assert_equal [report3], report2.mentioning_reports
+
+    report2.update!(content: '.')
+    report2.reload
+
+    assert_equal [], report2.mentioning_reports
+
+    # 削除
+    report2.destroy!
+    report3.destroy!
+
+    assert_equal [], report1.mentioned_reports
+  end
 end
