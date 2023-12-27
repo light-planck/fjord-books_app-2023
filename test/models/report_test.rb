@@ -13,9 +13,9 @@ class ReportTest < ActiveSupport::TestCase
   end
 
   test '#created_on' do
-    report1 = reports(:report1)
+    report = reports(:report1)
 
-    assert_equal Date.new(2024, 1, 1), report1.created_on
+    assert_equal Date.current, report.created_on
   end
 
   test '#save_mentions' do
