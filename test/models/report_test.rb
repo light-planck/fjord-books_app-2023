@@ -23,14 +23,16 @@ class ReportTest < ActiveSupport::TestCase
     report1.save!
 
     report2 = reports(:report2)
-    report2.save!
+    report2.update!(content: 'http://localhost:3000/reports/1')
+    report2.reload
 
     # 言及
     assert_equal [report1], report2.mentioning_reports
 
     # 複数個の言及
     report3 = reports(:report3)
-    report3.save!
+    report3.update!(content: "http://localhost:3000/reports/#{report1.id} http://localhost:3000/reports/#{report2.id}")
+    report3.reload
 
     assert_equal [report1, report2], report3.mentioning_reports
 
