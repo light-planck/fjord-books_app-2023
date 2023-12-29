@@ -24,7 +24,7 @@ class ReportTest < ActiveSupport::TestCase
     report1.save!
 
     report2 = reports(:report2)
-    report2.update!(content: 'http://localhost:3000/reports/1')
+    report2.update!(content: "http://localhost:3000/reports/#{report1.id}}")
     report2.reload
 
     # 言及
