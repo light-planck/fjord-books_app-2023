@@ -12,17 +12,16 @@ RSpec.describe 'Reports', type: :system do
 
   scenario 'User creates a new report' do
     sign_in user
+    visit reports_url
 
     expect do
-      visit reports_url
-
       click_on '日報の新規作成'
       fill_in 'タイトル', with: 'title'
       fill_in '内容', with: 'content'
       click_on '登録する'
-
-      assert_text '日報が作成されました。'
     end.to change(Report, :count).by(1)
+
+    assert_text '日報が作成されました。'
   end
 
   scenario 'User edits a report' do
