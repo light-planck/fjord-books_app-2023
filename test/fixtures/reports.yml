@@ -1,19 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-report1:
-  id: 1
-  user: user1
-  title: "Report 1"
-  content: "hello world"
+one:
+  user: one
+  title: MyString
+  content: MyText
 
-report2:
-  id: 2
-  user: user2
-  title: "Report 2"
-  content: ""
-
-report3:
-  id: 3
-  user: user1
-  title: "Report 3"
-  content: ""
+two:
+  user: two
+  title: MyString
+  content: MyText
