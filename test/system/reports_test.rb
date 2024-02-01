@@ -4,48 +4,44 @@ require 'application_system_test_case'
 
 class ReportsTest < ApplicationSystemTestCase
   setup do
-    visit root_path
-    assert_text 'ログイン'
+    @report = reports(:one)
+  end
 
-    fill_in 'Eメール', with: 'user1@example.com'
-    fill_in 'パスワード', with: 'password'
-    click_button 'ログイン'
-    assert_text 'ログインしました。'
+  test 'visiting the index' do
+    visit reports_url
+    assert_selector 'h1', text: 'Reports'
   end
 
   test 'should create report' do
     visit reports_url
+    click_on 'New report'
 
-    click_on '日報の新規作成'
+    fill_in 'Content', with: @report.content
+    fill_in 'Title', with: @report.title
+    fill_in 'User', with: @report.user_id
+    click_on 'Create Report'
 
-    fill_in 'タイトル', with: 'フィヨルドでのコードレビュー'
-    fill_in '内容', with: 'レビューを通して自分のコードがより良くなるのを実感する'
-    click_on '登録する'
-
-    assert_text '日報が作成されました。'
+    assert_text 'Report was successfully created'
+    click_on 'Back'
   end
 
   test 'should update Report' do
-    visit reports_url
-    click_on 'この日報を表示', match: :first
-    assert_text '日報の詳細'
+    visit report_url(@report)
+    click_on 'Edit this report', match: :first
 
-    click_on 'この日報を編集'
-    assert_text '日報の編集'
+    fill_in 'Content', with: @report.content
+    fill_in 'Title', with: @report.title
+    fill_in 'User', with: @report.user_id
+    click_on 'Update Report'
 
-    fill_in 'タイトル', with: 'フィヨルドブートキャンプの感想'
-    fill_in '内容', with: '学びが多い'
-    click_on '更新する'
-
-    assert_text '日報が更新されました。'
+    assert_text 'Report was successfully updated'
+    click_on 'Back'
   end
 
   test 'should destroy Report' do
-    visit reports_url
-    click_on 'この日報を表示', match: :first
-    assert_text '日報の詳細'
+    visit report_url(@report)
+    click_on 'Destroy this report', match: :first
 
-    click_on 'この日報を削除'
-    assert_text '日報が削除されました。'
+    assert_text 'Report was successfully destroyed'
   end
 end
