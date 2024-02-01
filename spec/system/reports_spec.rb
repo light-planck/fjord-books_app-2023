@@ -44,4 +44,18 @@ RSpec.describe 'Reports', type: :system do
     expect(report.reload.title).to eq 'フィヨルドブートキャンプの感想'
     expect(report.reload.content).to eq '学びが多い'
   end
+
+  scenario 'User deletes a report' do
+    sign_in user
+    FactoryBot.create(:report, user:)
+    visit reports_url
+
+    expect do
+      click_on 'この日報を表示', match: :first
+      assert_text '日報の詳細'
+
+      click_on 'この日報を削除'
+      assert_text '日報が削除されました。'
+    end.to change(Report, :count).by(-1)
+  end
 end
