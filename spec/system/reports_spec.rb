@@ -48,15 +48,21 @@ RSpec.describe 'Reports', type: :system do
 
   scenario 'User deletes a report' do
     sign_in user
-    create(:report, user:)
+    create(:report, user:, title: '削除予定の日報', content: 'この日報は削除します。')
     visit reports_url
 
     expect do
+      assert_text '削除予定の日報'
+      assert_text 'この日報は削除します。'
+
       click_on 'この日報を表示', match: :first
       assert_text '日報の詳細'
 
       click_on 'この日報を削除'
       assert_text '日報が削除されました。'
+
+      assert_no_text '削除予定の日報'
+      assert_no_text 'この日報は削除します。'
     end.to change(Report, :count).by(-1)
   end
 end
