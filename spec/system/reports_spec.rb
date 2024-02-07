@@ -22,6 +22,8 @@ RSpec.describe 'Reports', type: :system do
     end.to change(Report, :count).by(1)
 
     assert_text '日報が作成されました。'
+    assert_text 'title'
+    assert_text 'content'
   end
 
   scenario 'User edits a report' do
