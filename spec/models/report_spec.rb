@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe Report, type: :model do
-  let(:user1) { FactoryBot.create(:user) }
-  let(:user2) { FactoryBot.create(:user) }
-  let(:report) { FactoryBot.create(:report, user: user1) }
+  let(:user1) { create(:user) }
+  let(:user2) { create(:user) }
+  let(:report) { create(:report, user: user1) }
 
   describe '#editable?' do
     it 'returns true when the report is created by the user' do
@@ -26,9 +26,9 @@ RSpec.describe Report, type: :model do
   end
 
   describe '#save_mentions' do
-    let(:report1) { FactoryBot.create(:report) }
-    let(:report2) { FactoryBot.create(:report, content: "http://localhost:3000/reports/#{report1.id}}") }
-    let(:report3) { FactoryBot.create(:report, content: "http://localhost:3000/reports/#{report1.id} http://localhost:3000/reports/#{report2.id}") }
+    let(:report1) { create(:report) }
+    let(:report2) { create(:report, content: "http://localhost:3000/reports/#{report1.id}}") }
+    let(:report3) { create(:report, content: "http://localhost:3000/reports/#{report1.id} http://localhost:3000/reports/#{report2.id}") }
 
     it 'saves mention' do
       expect(report2.mentioning_reports).to eq [report1]

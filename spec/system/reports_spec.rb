@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Reports', type: :system do
-  let(:user) { FactoryBot.create(:user) }
-  let(:report) { FactoryBot.create(:report) }
+  let(:user) { create(:user) }
+  let(:report) { create(:report) }
 
   before do
     driven_by(:rack_test)
@@ -26,7 +26,7 @@ RSpec.describe 'Reports', type: :system do
 
   scenario 'User edits a report' do
     sign_in user
-    report = FactoryBot.create(:report, user:)
+    report = create(:report, user:)
     visit reports_url
 
     click_on 'この日報を表示', match: :first
@@ -47,7 +47,7 @@ RSpec.describe 'Reports', type: :system do
 
   scenario 'User deletes a report' do
     sign_in user
-    FactoryBot.create(:report, user:)
+    create(:report, user:)
     visit reports_url
 
     expect do
