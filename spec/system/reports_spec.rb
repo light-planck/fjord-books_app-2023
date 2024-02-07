@@ -28,7 +28,7 @@ RSpec.describe 'Reports', type: :system do
 
   scenario 'User edits a report' do
     sign_in user
-    report = create(:report, user:)
+    create(:report, user:)
     visit reports_url
 
     click_on 'この日報を表示', match: :first
@@ -42,9 +42,8 @@ RSpec.describe 'Reports', type: :system do
     click_on '更新する'
 
     assert_text '日報が更新されました。'
-
-    expect(report.reload.title).to eq 'フィヨルドブートキャンプの感想'
-    expect(report.reload.content).to eq '学びが多い'
+    assert_text 'フィヨルドブートキャンプの感想'
+    assert_text '学びが多い'
   end
 
   scenario 'User deletes a report' do
